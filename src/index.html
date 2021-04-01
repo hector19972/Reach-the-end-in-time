@@ -8,35 +8,31 @@
 </head>
 
 <body>
+    <script src="./script.js"></script>
     <h1>Holamundo</h1>
     <input id="nStrings" type="number" placeholder="Tamaño del laberinto nxn">
     <br>
 
     <button type="button" onclick="inicio()">ingresar tamaño</button>
+
+
+    <div id="padre">
+    </div>
+    <br>
+    <button type="button" onclick="cargarString()">Comprobar camino</button>
+
     <button type="button" onclick="imprimir()">imprimir</button>
-    <script src="./script.js"></script>
-
-
+    <!--
     <script>
-        function crearDin() {
-
-            var padre = document.getElementById("padre");
-            var input = document.createElement("INPUT");
-            input.type = 'text';
-            input.className="Hola";
-
-            padre.appendChild(input);
-        }
         window.onload = function () {
-
             var btnAdd = document.getElementById("btn_agregar");
             btnAdd.onclick = crearDin;
         }
     </script>
+   
     <div id="padre">
-
     </div>
-    <input type="button" id="btn_agregar" value="+">
+    <input type="button" id="btn_agregar" value="+">-->
 </body>
 
 </html>
