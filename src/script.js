@@ -84,6 +84,10 @@ function cargarString() {
     return false;
 }
 function Limpiar() {
+
+    var resultadoPadre= document.getElementById("resultadoPadre");
+    var padre = document.getElementById("padre");
+
     if(padre.children.length>2){
         var aux= padre.children.length
         for (let index = 0; index < aux; index++) {
@@ -91,6 +95,15 @@ function Limpiar() {
             padre.removeChild(hijo);
             console.log(padre.children.length+"---contenido eliminado---");
         }
+    }
+    try {
+        if (resultadoPadre.children.length>0) {
+            var resultadoPadre= document.getElementById("resultadoPadre");
+            var resultadohijo=resultadoPadre.children[0];
+            resultadoPadre.removeChild(resultadohijo);
+        }   
+    } catch (error) {
+        console.log(error);
     }
     document.getElementById('ingresarTam').disabled=false;
     document.getElementById('ingresarTam').className="enabled";
@@ -101,6 +114,7 @@ function crearDin(number) {
 
     var padre = document.getElementById("padre");
     //console.log(padre.children.length+"-------------");
+    var resultadoPadre= document.getElementById("resultadoPadre");
     if(padre.children.length>2){
         var aux= padre.children.length
         for (let index = 0; index < aux; index++) {
@@ -109,15 +123,25 @@ function crearDin(number) {
             //console.log(padre.children.length+"---contenido eliminado---");
         }
     }
+    try {
+        if (resultadoPadre.children.length>0) {
+            var resultadoPadre= document.getElementById("resultadoPadre");
+            var resultadohijo=resultadoPadre.children[0];
+            resultadoPadre.removeChild(resultadohijo);
+        }   
+    } catch (error) {
+        console.log(error);
+    }
+    
     for (let index = 0; index < number; index++) {
-        console.log("comence a crear");
+        //console.log("comence a crear");
         var input = document.createElement("INPUT");
         input.type = 'text';
         input.id = "string-" + index;
         input.setAttribute("maxLength", number);
         input.setAttribute("minlength", number);
         input.setAttribute("onkeyPress","return check(event)");
-        input.setAttribute("placeholder", (index+1)+" ,Ingresa tu cadena de . y #");
+        input.setAttribute("placeholder", (index+1)+" ,Ingresa tu String '.', '#'");
         input.setAttribute("required","");
         padre.appendChild(input);
         padre.appendChild(document.createElement("br"))
@@ -128,6 +152,7 @@ function crearDin(number) {
     maxMov.id = "maximoDeMovimientos";
     maxMov.setAttribute("step","1");
     maxMov.setAttribute("required","");
+    maxMov.setAttribute("placeholder", "Ingresa el Maximo de Movimientos");
     padre.appendChild(maxMov);
 
 
@@ -208,12 +233,39 @@ function ejecutar() {
         console.log(indentificador);
     } while (indentificador < ((nStrings * nStrings) - 1));
 
+    var resultadoPadre= document.getElementById("resultadoPadre");
+    var resultado = document.createElement("H1")
+
+    try {   //Limpiar el resultado de pantalla
+        if (resultadoPadre.children.length>0) {
+            var resultadoPadre= document.getElementById("resultadoPadre");
+            var resultadohijo=resultadoPadre.children[0];
+            resultadoPadre.removeChild(resultadohijo);
+        }   
+    } catch (error) {
+        console.log(error);
+    }
+
     if (meta && movimientos <= maxMov) {
         console.log("movimientos " +movimientos+" MaxMov "+maxMov);
         console.log("YES");
+        //resultadoPadre.appendChild(document.createElement("h1").value="YES");
+        resultado.innerHTML="YES";
+        try {
+            resultadoPadre.appendChild(resultado);
+        } catch (error) {
+            console.log(error);
+        }
     } else{
         console.log("movimientos " +movimientos+" MaxMov "+maxMov);
+        resultado.innerHTML="NO";
+        try {
+            resultadoPadre.appendChild(resultado);
+        } catch (error) {
+            console.log(error);
+        }
         console.log("NO");
+        //resultadoPadre.appendChild(document.createElement("h1").value="NO");
     }
 
 }
