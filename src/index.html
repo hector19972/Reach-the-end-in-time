@@ -8,18 +8,18 @@
     <link href="./style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body oncopy="return false" onpaste="return false">
     <script src="./script.js"></script>
     <h1>Reach The End</h1>
     <form name="myForm" onsubmit="return inicio()">
         <input id="nStrings" type="number" placeholder="Tamaño del laberinto nxn" min="1" step="1" required>
         <br>
-        <input type="submit" value="ingresar tamaño"><!--onclick="inicio()"-->
+        <input type="submit" id="ingresarTam" value="Ingresar tamaño"><!--onclick="inicio()"-->
     </form>
     
-    <form id="padre" name="stringForm" onsubmit="return cargarString()">
-
-        <input id="comprobar" type="submit" value="Comprobar camino"><!--onclick="cargarString()"-->
+    <form  name="stringForm" onsubmit="return cargarString()">
+        <div id="padre"></div>
+        <input id="comprobar" class="disabled" type="submit" value="Comprobar camino" disabled><!--onclick="cargarString()"-->
         <br>
     </form>
     <br>
@@ -37,6 +37,7 @@
     <div id="padre">
     </div>
     <input type="button" id="btn_agregar" value="+">-->
+    <p>Héctor Fernando Díaz Rosales</p>
 </body>
 
 </html>

@@ -39,6 +39,10 @@ function inicio() {
         }
     }
     //desabilitar tambien el boton para que no cree mas tablas y cambiar imprimir por un reiniciar
+    document.getElementById('ingresarTam').disabled=true;
+    document.getElementById('ingresarTam').className="disabled";
+    document.getElementById('comprobar').disabled=false;
+    document.getElementById('comprobar').className="enabled";
     crearDin(n);
     return false;
 
@@ -48,13 +52,15 @@ function cargarString() {
     let camino = new String;
     for (let index = 0; index < this.nStrings; index++) {
         camino = document.getElementById("string-" + index).value;
-        if (camino=="") {
-            
-        }
         console.log(camino);
         for (let indey = 0; indey < this.nStrings; indey++) {
-            this.tablero[aux].caracter = camino[indey];
-
+            if (aux==0) {
+                this.tablero[aux].caracter = ".";//Cambia el primer caracter por . en caso de que sea #
+                camino[indey]=".";
+            } else {
+                this.tablero[aux].caracter = camino[indey]; 
+            }
+            
             //En el caso de volver a ejecutarse se reinician las variables
             this.tablero[aux].visitado = false;
             this.tablero[aux].arriba = true;
@@ -80,12 +86,16 @@ function cargarString() {
 function Limpiar() {
     if(padre.children.length>2){
         var aux= padre.children.length
-        for (let index = 2; index < aux; index++) {
-            var hijo= padre.children[2];
+        for (let index = 0; index < aux; index++) {
+            var hijo= padre.children[0];
             padre.removeChild(hijo);
             console.log(padre.children.length+"---contenido eliminado---");
         }
     }
+    document.getElementById('ingresarTam').disabled=false;
+    document.getElementById('ingresarTam').className="enabled";
+    document.getElementById('comprobar').disabled=true;
+    document.getElementById('comprobar').className="disabled";
 }
 function crearDin(number) {
 
@@ -93,10 +103,10 @@ function crearDin(number) {
     //console.log(padre.children.length+"-------------");
     if(padre.children.length>2){
         var aux= padre.children.length
-        for (let index = 2; index < aux; index++) {
-            var hijo= padre.children[2];
+        for (let index = 0; index < aux; index++) {
+            var hijo= padre.children[0];
             padre.removeChild(hijo);
-            console.log(padre.children.length+"---contenido eliminado---");
+            //console.log(padre.children.length+"---contenido eliminado---");
         }
     }
     for (let index = 0; index < number; index++) {
@@ -105,8 +115,9 @@ function crearDin(number) {
         input.type = 'text';
         input.id = "string-" + index;
         input.setAttribute("maxLength", number);
+        input.setAttribute("minlength", number);
         input.setAttribute("onkeyPress","return check(event)");
-        input.setAttribute("placeholder", "Ingresa tu cadena de . y #");
+        input.setAttribute("placeholder", (index+1)+" ,Ingresa tu cadena de . y #");
         input.setAttribute("required","");
         padre.appendChild(input);
         padre.appendChild(document.createElement("br"))
