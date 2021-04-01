@@ -5,23 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="./style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
     <script src="./script.js"></script>
-    <h1>Holamundo</h1>
-    <input id="nStrings" type="number" placeholder="Tamaño del laberinto nxn">
+    <h1>Reach The End</h1>
+    <form name="myForm" onsubmit="return inicio()">
+        <input id="nStrings" type="number" placeholder="Tamaño del laberinto nxn" min="1" step="1" required>
+        <br>
+        <input type="submit" value="ingresar tamaño"><!--onclick="inicio()"-->
+    </form>
+    
+    <form id="padre" name="stringForm" onsubmit="return cargarString()">
+
+        <input id="comprobar" type="submit" value="Comprobar camino"><!--onclick="cargarString()"-->
+        <br>
+    </form>
     <br>
+    <!--<button type="button" onclick="cargarString()">Comprobar camino</button>-->
 
-    <button type="button" onclick="inicio()">ingresar tamaño</button>
-
-
-    <div id="padre">
-    </div>
-    <br>
-    <button type="button" onclick="cargarString()">Comprobar camino</button>
-
-    <button type="button" onclick="imprimir()">imprimir</button>
+    <button type="button" onclick="Limpiar()">Limpiar</button>
     <!--
     <script>
         window.onload = function () {

@@ -39,8 +39,8 @@ function inicio() {
         }
     }
     //desabilitar tambien el boton para que no cree mas tablas y cambiar imprimir por un reiniciar
-
     crearDin(n);
+    return false;
 
 }
 function cargarString() {
@@ -48,6 +48,9 @@ function cargarString() {
     let camino = new String;
     for (let index = 0; index < this.nStrings; index++) {
         camino = document.getElementById("string-" + index).value;
+        if (camino=="") {
+            
+        }
         console.log(camino);
         for (let indey = 0; indey < this.nStrings; indey++) {
             this.tablero[aux].caracter = camino[indey];
@@ -72,25 +75,48 @@ function cargarString() {
     //hacer disabled y enviar alerta
     this.maxMov = document.getElementById("maximoDeMovimientos").value;
     ejecutar();
+    return false;
 }
-function imprimir() {
-    this.tablero[5].caracter = "#";
-    console.log(this.tablero[5].caracter);
+function Limpiar() {
+    if(padre.children.length>2){
+        var aux= padre.children.length
+        for (let index = 2; index < aux; index++) {
+            var hijo= padre.children[2];
+            padre.removeChild(hijo);
+            console.log(padre.children.length+"---contenido eliminado---");
+        }
+    }
 }
 function crearDin(number) {
 
     var padre = document.getElementById("padre");
+    //console.log(padre.children.length+"-------------");
+    if(padre.children.length>2){
+        var aux= padre.children.length
+        for (let index = 2; index < aux; index++) {
+            var hijo= padre.children[2];
+            padre.removeChild(hijo);
+            console.log(padre.children.length+"---contenido eliminado---");
+        }
+    }
     for (let index = 0; index < number; index++) {
+        console.log("comence a crear");
         var input = document.createElement("INPUT");
         input.type = 'text';
         input.id = "string-" + index;
         input.setAttribute("maxLength", number);
+        input.setAttribute("onkeyPress","return check(event)");
+        input.setAttribute("placeholder", "Ingresa tu cadena de . y #");
+        input.setAttribute("required","");
         padre.appendChild(input);
+        padre.appendChild(document.createElement("br"))
 
     }
     var maxMov = document.createElement("INPUT");
     maxMov.type = 'number';
     maxMov.id = "maximoDeMovimientos";
+    maxMov.setAttribute("step","1");
+    maxMov.setAttribute("required","");
     padre.appendChild(maxMov);
 
 
@@ -179,4 +205,14 @@ function ejecutar() {
         console.log("NO");
     }
 
+}
+function check(e){
+   tecla= (document.all) ? e.keyCode: e.which;
+   if (tecla== 8){
+       return true;
+   }
+   //Patron de entrada
+   patron= /[.#]/;
+   tecla_final= String.fromCharCode(tecla);
+   return patron.test(tecla_final); 
 }
