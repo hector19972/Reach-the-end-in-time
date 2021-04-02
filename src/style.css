@@ -1,47 +1,65 @@
 input[type=text] {
-    background-color: #06557a;
-    color: white;
-    margin: 4px 2px;
-  }
-  input[type=number] {
-    background-color: #003049;
-    color: white;
-    margin: 4px 2px;
-  }
+  background-color: #06557a;
+  color           : white;
+  margin          : 4px 2px;
+}
 
-  input[type=button], input[type=submit], input[type=reset] {
-    background-color: #e85d04;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-    
-  }
-  button[type=button]{
-    background-color: #e85d04;
-    border: none;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+input[type=number] {
+  background-color: #003049;
+  color           : white;
+  margin          : 4px 2px;
+}
 
-  #comprobar{
-    background-color: #e85d04;
-  }
-  body{
-      background-color: #eae2b7;
-      text-align: center;
-  }
-  input[type=submit].disabled{
-    background-color: #fcbf49;  
-    
-  }
-  input[type=submit].disabled#comprobar{
-    background-color: #fcbf49;  
-    
-  }
-  
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  background-color: #e85d04;
+  border          : none;
+  color           : white;
+  padding         : 16px 32px;
+  text-decoration : none;
+  margin          : 4px 2px;
+  cursor          : pointer;
+
+}
+
+button[type=button] {
+  background-color: #e85d04;
+  border          : none;
+  color           : white;
+  padding         : 12px 25px;
+  text-decoration : none;
+  margin          : 4px 2px;
+  cursor          : pointer;
+}
+
+#comprobar {
+  background-color: #e85d04;
+}
+
+body {
+  /*
+  background-color: #eae2b7;
+
+  background: -moz-linear-gradient(0deg, hsla(201, 100%, 14%, 1) 0%, hsla(0, 69%, 50%, 1) 6%, hsla(31, 100%, 48%, 1) 22%, hsla(40, 97%, 64%, 1) 54%, hsla(51, 55%, 82%, 1) 100%);
+
+  background: -webkit-linear-gradient(0deg, hsla(201, 100%, 14%, 1) 0%, hsla(0, 69%, 50%, 1) 6%, hsla(31, 100%, 48%, 1) 22%, hsla(40, 97%, 64%, 1) 54%, hsla(51, 55%, 82%, 1) 100%);
+
+*/
+text-align      : center;
+background: hsla(201, 100%, 14%, 1);
+
+background: linear-gradient(0deg, hsla(201, 100%, 14%, 1) 0%, hsla(0, 69%, 50%, 1) 5%, hsla(31, 100%, 48%, 1) 13%, hsla(40, 97%, 64%, 1) 37%, hsla(51, 55%, 82%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#003049", endColorstr="#d62828", GradientType=1 );
+}
+
+input[type=submit].disabled {
+  background-color: #fcbf49;
+
+}
+
+input[type=submit].disabled#comprobar {
+  background-color: #fcbf49;
+
+}
