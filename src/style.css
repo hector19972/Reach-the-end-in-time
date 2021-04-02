@@ -1,16 +1,16 @@
 input[type=text] {
-    background-color: #3CBC8D;
+    background-color: #06557a;
     color: white;
     margin: 4px 2px;
   }
   input[type=number] {
-    background-color: #3243d6;
+    background-color: #003049;
     color: white;
     margin: 4px 2px;
   }
 
   input[type=button], input[type=submit], input[type=reset] {
-    background-color: #4CAF50;
+    background-color: #e85d04;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -20,7 +20,7 @@ input[type=text] {
     
   }
   button[type=button]{
-    background-color: #e08216;
+    background-color: #e85d04;
     border: none;
     color: white;
     padding: 12px 25px;
@@ -30,16 +30,18 @@ input[type=text] {
   }
 
   #comprobar{
-    background-color: #5dddb2;
+    background-color: #e85d04;
   }
   body{
-      background-color: lightskyblue;
+      background-color: #eae2b7;
       text-align: center;
   }
   input[type=submit].disabled{
-    background-color: #6e8d6fd2;  
+    background-color: #fcbf49;  
+    
   }
   input[type=submit].disabled#comprobar{
-    background-color: #588174ce;  
+    background-color: #fcbf49;  
+    
   }
   
